@@ -1,0 +1,9 @@
+25-04-2024	12:32:57	7245e53c-960e-44b6-bb2c-4d3cb9232509	GET	/api/productss	404	Not Found
+25-04-2024	12:38:08	88f10639-75fa-4e8a-a913-23234d2f99c9	GET	/api/productss	404	Not Found
+25-04-2024	12:46:22	a7374053-4f42-4abc-a2ef-7932c92a179f	GET	/api/productss	404	Not Found
+25-04-2024	12:46:50	cf05b728-6926-487c-86d2-88999fcaec6c	PUT	/api/productss	404	Not Found
+25-04-2024	12:47:02	915d2e28-f4c1-4ef7-aa0e-e90b27bad887	PUT	/api/products	500	Not valid method
+25-04-2024	13:29:48	5739e180-d9a7-45ce-83c5-dddb415bf6a2	GET	/api/products	500	Not valid method
+26-04-2024	09:14:51	89ad35bc-b514-427a-a5ba-d8d76773992a	GET	/api/products	undefined	products is not defined
+26-04-2024	09:53:37	e7dcf4b0-fea4-4aa9-bbda-aece9f9cad7e	GET	/data/products-api/identifier.sqlite	404	Not Found
+26-04-2024	09:53:53	b8ccff1a-b520-41a7-bd4e-ccd50668fcc5	GET	/data/products-api/	404	Not Found
