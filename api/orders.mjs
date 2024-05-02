@@ -1,4 +1,5 @@
 ﻿import express from "express";
+import {addOrder, addProduct} from "../database/dbQueries.mjs";
 const router = express.Router();
 
 router.all("/", (req, res) => {
@@ -7,9 +8,14 @@ router.all("/", (req, res) => {
         res.status(200).json({
             message: "Orders will come here",
         });
+        
+        
     } else if (req.method === "POST") {
+        const orderId = req.params;
+        addOrder(req.body)
+        
         res.status(201).json({
-            message: "Use this to add new orders."
+            message: "Order added."
         });
     }
     const error = new Error(`${req.method} is not a valid method`);
@@ -21,9 +27,13 @@ router.all("/:orderId", (req, res) => {
     const orderId = req.params;
     
     if (req.method === "GET") {
-        res.status(200).json({
-            message: "Order information",
+        addOrder(req.body)
+
+        res.status(201).json({
+            message: "Product has been created!",
+            addedProduct: req.body
         });
+        
     } else if (req.method === "DELETE") {
         res.status(200).json({
             message: "Delete this order."

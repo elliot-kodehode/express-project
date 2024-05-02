@@ -1,58 +1,88 @@
 ﻿import express from 'express';
 const router = express.Router();
-import {ReqError} from "../util/errorHandler.mjs";
+import { ReqError } from "../middleware/errorHandler.mjs";
+import { getProducts, getCategory, getSingleProduct, addProduct, deleteProduct, updateProduct } from "../database/dbQueries.mjs";
+import jwtValidator from "../middleware/jwtValidator.mjs";
 
-import sqlite3 from 'sqlite3';
 
-import db from './connection.js';
+router.get("/", (res, req) => {
+    const { category } = req.query;
+    let data;
 
-router.all('/', (req, res) => {
-    
-    if (req.method === "GET") {
-        let data = db
-
+    if (category) {
+        data = getCategory(category.toLowerCase())
+    } else {
+        data = getProducts()
     }
-    
-    if (req.method === "GET") {
-        let data = products
-        const { category } = req.query
 
-        if (category) {
-            data = products.filter(products => products.category.toLowerCase() === category.toLowerCase())
-        }
-    res.json({
-        data
+    res.status(200).json({
+        data: data,
+    })
+})
+
+router.post("/", jwtValidator, (req, res) => {
+    addProduct(req.body)
+
+    res.status(201).json({
+        message: "Product has been created!",
+        addedProduct: req.body
     });
+})
 
-    } else if (req.method === "POST") {
-        res.status(201).json({
-            message: "Product has been created!"
-        });
-    }
-    throw new ReqError(500, "Not valid method")
+router.all('/', (req, res, next) => {
+    next(
+        new ReqError(
+            405, 
+            "Unsupported request method. Please refer to the API documentation"
+        )
+    );
 });
 
-router.all("/:productId", (req, res) => {
-        const {productId} = req.params;
+router.all("/:id", (req, res) => {
+        const { id } = req.params;
+        let message, data;
         
     if (req.method === "GET") {
-        res.status(200).json({
-            productId: productId,
-            message: `Product ${productId} will come here.`
-        })
+        data = getSingleProduct(id)
+        
+        if (data) {
+            message = "Successfully fetched data for product"
+        } else {
+            throw new ReqError(404, "Product not found")
+        }
+        
     } else if (req.method === "DELETE") {
-        res.status(200).json({
-            productId: productId,
-            message: `This will delete product ${productId}.`
-        })
+       data = getSingleProduct(id);
+       
+       if (data) {
+           deleteProduct(id)
+           message = "Deleted product" + id
+       } else {
+           message = "Product not found"
+       }
+        
     } else if (req.method === "PUT") {
-        res.status(200).json({
-            productId: productId,
-            message: `This will update product ${productId}.`
-        })
+        const checkProduct = getSingleProduct(id)
+        
+        if (checkProduct) {
+            updateProduct(req.body);
+            message = "Successfully updated product"
+        data = {
+            oldVersion: checkProduct,
+            newVersion: req.body
+            }
+        } else {
+            throw new ReqError(404, "Product not found")
+        }
+        
     } else {
         throw new ReqError(500, "Not valid method")
     }
+    res.status(200).json({
+        id: id, 
+        message: message, 
+        data: data
+    })
 })
 
 

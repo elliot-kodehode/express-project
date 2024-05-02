@@ -7,3 +7,55 @@
 26-04-2024	09:14:51	89ad35bc-b514-427a-a5ba-d8d76773992a	GET	/api/products	undefined	products is not defined
 26-04-2024	09:53:37	e7dcf4b0-fea4-4aa9-bbda-aece9f9cad7e	GET	/data/products-api/identifier.sqlite	404	Not Found
 26-04-2024	09:53:53	b8ccff1a-b520-41a7-bd4e-ccd50668fcc5	GET	/data/products-api/	404	Not Found
+29-04-2024	12:32:04	95be6cc6-9a4b-4d23-b07c-5b1337cb56b3	GET	/api/products	undefined	products is not defined
+29-04-2024	12:34:53	426b32cd-b5be-4f52-a88a-e113a83bdb73	GET	/api/products?category=electronics	undefined	products is not defined
+29-04-2024	12:44:54	6b4af008-a7f2-4254-8375-a8da25b2ccca	GET	/api/products?category=electronics	undefined	products is not defined
+29-04-2024	12:45:28	a2db9bdc-2d50-4294-a37a-133fd312bb7f	GET	/api/products?category=Electronics	500	Not valid method
+29-04-2024	12:45:39	977930a3-2620-45a3-9ad2-5f3ae9395a35	GET	/api/products?category=electronics	500	Not valid method
+29-04-2024	12:45:46	caac5e61-1bae-4507-83dc-f7e50a9f96c3	GET	/api/products?category=Electronics	500	Not valid method
+29-04-2024	12:48:06	12545678-bd2b-473e-b0f9-a34b861f6f82	GET	/api/products?category=Electronics	undefined	req.query.toLowerCase is not a function
+29-04-2024	12:48:46	8bf681a2-eb84-40de-a201-835fd3bb81b4	GET	/api/products?category=Electronics	500	Not valid method
+29-04-2024	12:58:12	3a3b4411-746c-4c15-8a6b-e6b953dbc84b	GET	/api/?id=1	404	Not Found
+29-04-2024	12:58:19	7fad5d0d-18e4-4385-ac91-b37f322c496f	GET	/api/1	404	Not Found
+29-04-2024	12:59:25	d5f76dbf-da2f-4ead-8875-2b3c573deaac	GET	/api/products/?id=1	500	Not valid method
+29-04-2024	13:02:16	e3d022fc-fb5a-4260-a1f3-5ca6752850dd	GET	/api/products/?id=1	500	Not valid method
+29-04-2024	13:22:39	80102a2e-2d9f-4663-a9df-40d2f9c70c8d	POST	/api/products	500	Not valid method
+29-04-2024	13:24:52	16c2f94c-db1c-4eaa-bc50-f21c4c7791e3	POST	/api/products	500	Not valid method
+29-04-2024	13:25:56	22046cee-0694-4cb5-b0aa-fb9d6bade996	POST	/api/products	500	Not valid method
+29-04-2024	13:33:35	4fdcdc99-51e0-4c9d-b83f-1a5140b04d22	GET	/api/products/1Accept:%20application/json	404	Not Found
+29-04-2024	13:33:50	7d53936e-c21b-4098-8694-5e6327baf62e	GET	/api/products/1	undefined	Cannot set headers after they are sent to the client
+29-04-2024	13:37:00	7c7e9f2d-c69e-42bc-93a4-b1ba21b0ceb2	GET	/api/products/1	undefined	Cannot set headers after they are sent to the client
+29-04-2024	13:38:47	cb597a8b-a33c-4ee1-95f9-353a2d7739d3	GET	/api/products/176	404	Product not found
+29-04-2024	13:48:50	7cfa662b-e25b-4cfa-8046-8105d2e275d4	DELETE	/api/products/17	undefined	database is locked
+29-04-2024	13:50:16	065a3f0d-7bbc-4c16-9302-eb8d7bfbba52	DELETE	/api/products/17	undefined	database is locked
+29-04-2024	13:52:17	b3347c1d-071b-44fc-a90c-4f4c31b20f29	DELETE	/api/products/17	undefined	database is locked
+29-04-2024	13:53:33	2cb14153-b50e-4299-9045-27f67e86aa70	DELETE	/api/products/17	undefined	database is locked
+29-04-2024	13:56:19	c5ada84f-0179-4d48-9eda-d0505a07d1c0	DELETE	/api/products/17	undefined	database is locked
+29-04-2024	13:57:06	a9975dab-4176-4db5-8ffc-019faff1fe4f	DELETE	/api/products/17	undefined	database is locked
+29-04-2024	13:59:19	c48007bf-9248-49ab-b07c-6a6011fe3c3e	DELETE	/api/products/17	undefined	database is locked
+29-04-2024	14:54:50	bfd2fb0d-cc44-47b7-9139-3d91b4a99665	POST	/api/products	undefined	6 values for 4 columns
+29-04-2024	14:56:26	27d20bbe-0920-4cbf-951b-bcfde275c817	POST	/api/products	undefined	table products has no column named image_data
+29-04-2024	14:56:37	c9855d9a-bcb3-4a8a-af28-3bad5cf861a6	POST	/api/products	500	Not valid method
+30-04-2024	10:19:59	1a9efd3d-5e55-46d5-9a8d-b85c3b1635e9	POST	/api/products	500	Not valid method
+30-04-2024	10:21:34	f80f22aa-4aef-4eb0-b359-954aac1e4fa2	GET	/favicon.ico	404	Not Found
+30-04-2024	10:36:05	05220ba8-50cc-4083-82ce-9c90479a63dd	GET	/api/products/	500	Not valid method
+30-04-2024	10:36:42	75fc2cd5-2af1-463a-bfde-c6c3c536ba48	GET	/api/products/	500	Not valid method
+30-04-2024	10:36:54	33416852-d754-47d5-9cb1-1a87637f4d39	GET	/api/products	500	Not valid method
+30-04-2024	10:39:33	8cd40292-9505-4063-a909-d82aeadb4028	GET	/api/products/	500	Not valid method
+30-04-2024	12:39:31	ce5d9587-8ed9-4d6d-895a-9a10176c55bc	PUT	/api/products/13	undefined	Too many parameter values were provided
+30-04-2024	12:40:19	a095b04f-6869-4fde-b45b-3779ed368bdd	PUT	/api/products/13	undefined	Too many parameter values were provided
+30-04-2024	12:42:04	072302cb-46ab-47c1-a6aa-b5c8f69757f4	PUT	/api/products/13	undefined	Too many parameter values were provided
+30-04-2024	12:44:28	64c42080-31b9-4cbf-a887-2f3e162d1faf	PUT	/api/products/13	undefined	Too many parameter values were provided
+30-04-2024	14:30:51	898dc7cc-7a00-4d74-9c7f-8ff54c498fbe	GET	/favicon.ico	404	Not Found
+02-05-2024	12:28:38	b7f7dde8-70db-46e3-96f9-41a744765cbb	POST	/api/login	403	Authentication failed
+02-05-2024	12:29:01	83f324e7-4a3c-4b5b-bcad-db3e0c0d4961	POST	/api/signup	403	database is locked
+02-05-2024	12:29:27	762f0b3e-7c4c-4648-953a-5cc883a7f41a	POST	/api/login	500	secretOrPrivateKey must have a value
+02-05-2024	12:29:56	32be4650-3709-45dd-aa9f-8943439d8b69	POST	/api/login	500	secretOrPrivateKey must have a value
+02-05-2024	12:32:36	325b8719-f107-4938-aef1-038da4826b60	POST	/api/login	500	secretOrPrivateKey must have a value
+02-05-2024	12:52:04	9e19d808-b457-4d49-af53-2272ce407564	POST	/api/login	500	secretOrPrivateKey must have a value
+02-05-2024	13:37:01	8b95a1f2-d5b3-45c7-8e90-579b5e94e19e	POST	/api/orders	405	POST is not a valid method
+02-05-2024	13:38:28	5ea142c8-8525-4572-811c-dfa12184d9f8	POST	/api/orders	405	POST is not a valid method
+02-05-2024	13:43:33	f107c264-4152-457d-832f-6d74819d1498	POST	/api/orders	undefined	#<Object> is not a function
+02-05-2024	13:45:26	bb38c536-5704-4359-8070-32087d242a87	POST	/api/orders	405	POST is not a valid method
+02-05-2024	13:47:31	9c326604-685a-470a-8dcf-b549fe456cbb	POST	/api/orders	undefined	database is locked
+02-05-2024	13:47:38	a436c2a9-5890-4211-b75d-291c58435508	POST	/api/orders	405	POST is not a valid method
