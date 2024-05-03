@@ -59,3 +59,39 @@
 02-05-2024	13:45:26	bb38c536-5704-4359-8070-32087d242a87	POST	/api/orders	405	POST is not a valid method
 02-05-2024	13:47:31	9c326604-685a-470a-8dcf-b549fe456cbb	POST	/api/orders	undefined	database is locked
 02-05-2024	13:47:38	a436c2a9-5890-4211-b75d-291c58435508	POST	/api/orders	405	POST is not a valid method
+03-05-2024	09:47:59	966c8ef3-3ae8-4d1e-a5a3-8617d88fbf53	GET	/api/orders	405	GET is not a valid method
+03-05-2024	09:48:23	a9c6b16c-cf4f-4775-b0d3-8824a15e05ae	GET	/api/orders	405	GET is not a valid method
+03-05-2024	09:48:32	5a7cc9f8-0606-4b9b-8672-d1dc251a4451	GET	/api/orders	405	GET is not a valid method
+03-05-2024	10:03:09	67780cc4-d50d-436d-b334-83795894b89e	POST	/api/orders	undefined	order_date is not defined
+03-05-2024	10:04:20	ca5a26e0-4c63-4112-ba6f-753d514fcd17	POST	/api/orders	undefined	order_date is not defined
+03-05-2024	10:04:33	c03c37f6-cfb4-468a-ae4d-85b6afae5f69	POST	/api/orders	405	POST is not a valid method
+03-05-2024	10:17:14	bb4d3655-4adb-47ec-95b9-ea1308398460	POST	/api/orders	undefined	no such column: count
+03-05-2024	10:18:48	9fd3bb10-c430-44d5-88c1-ace6148e66a8	POST	/api/orders	undefined	no such column: count
+03-05-2024	10:18:53	ebac0380-4635-4cc5-b986-a32cc0dcd11c	POST	/api/orders	undefined	no such column: totalProducts
+03-05-2024	10:20:09	8a730e06-9a90-4816-83c6-c460662df32a	POST	/api/orders	undefined	no such column: totalProducts
+03-05-2024	10:20:20	02e0402e-c9de-47b0-b006-44b4157f8e61	POST	/api/orders	405	POST is not a valid method
+03-05-2024	11:29:03	96be3d0b-e621-4f23-9e76-af435b55ec73	GET	/api/orders/6	undefined	no such column: order_id
+03-05-2024	11:30:01	8ff6f78a-e1c5-4b67-bf10-b6f27166d191	GET	/api/orders/6	undefined	Too few parameter values were provided
+03-05-2024	11:30:55	04d52f4e-e217-41af-b2e7-83093f63eefb	GET	/api/orders/6	undefined	order_id is not defined
+03-05-2024	11:35:05	6c5a4819-d539-4376-883e-359484d0f49e	GET	/api/orders/6	undefined	Too few parameter values were provided
+03-05-2024	11:36:01	ef971294-b305-4faf-8f62-29de00eb60e2	GET	/api/orders/6	undefined	no such column: product_id
+03-05-2024	11:36:34	13d848b9-15d8-4a50-95fa-dbcaa39e790f	GET	/api/orders/6	undefined	Too few parameter values were provided
+03-05-2024	11:38:09	4dbd7ffc-46a6-42f5-8e37-0e195eeb6ecb	GET	/api/orders/6	undefined	product_ids.map is not a function
+03-05-2024	14:24:27	3cd5fa69-58e2-47eb-a486-55eed4d8eb49	GET	/api/orders/6	undefined	no such column: o.order_id
+03-05-2024	14:24:57	99352b96-0bae-4073-a52c-f055e59357bf	GET	/api/orders/6	405	GET is not a valid method
+03-05-2024	14:25:32	104506a3-934b-4104-b912-e19787199fd2	GET	/api/orders/6	405	GET is not a valid method
+03-05-2024	14:26:27	7a7989a7-5b93-475e-8f96-5f9fdffbb351	GET	/api/orders/6	undefined	Cannot read properties of undefined (reading 'user_id')
+03-05-2024	14:29:06	c08500df-e15f-4334-b0e3-74617a76b4a8	GET	/api/orders/6	405	GET is not a valid method
+03-05-2024	14:30:15	354a0072-8495-44ba-9226-bffa1ee6c842	GET	/api/orders/6	405	GET is not a valid method
+03-05-2024	14:37:34	30cad7a6-ad0c-4288-adfb-c3613f13128c	GET	/api/orders/12	undefined	Cannot destructure property 'user_id' of 'orderItems[0]' as it is undefined.
+03-05-2024	14:39:52	f097f1f0-179d-430c-975f-6910b41b4f10	GET	/api/orders/12	undefined	Cannot destructure property 'user_id' of 'orderItems[0]' as it is undefined.
+03-05-2024	14:40:27	51b138eb-7159-47a8-b734-3fc61e9e194e	GET	/api/orders/12	undefined	Cannot destructure property 'user_id' of 'orderItems[0]' as it is undefined.
+03-05-2024	14:40:59	f50d8d5a-656a-4533-9549-225a13b3ce09	GET	/api/orders/12	undefined	Cannot destructure property 'user_id' of 'orderItems[0]' as it is undefined.
+03-05-2024	14:42:43	4d3401c7-db5a-470d-96ce-f12a20bc8122	GET	/api/orders/12	undefined	Cannot destructure property 'user_id' of 'orderItems[0]' as it is undefined.
+03-05-2024	14:43:42	ed89e4b3-2be0-4735-beef-378d4e4c9539	GET	/api/orders/12	undefined	Cannot destructure property 'user_id' of 'orderItems[0]' as it is undefined.
+03-05-2024	14:44:13	12d66d65-a89b-4012-9b5e-8f285540fdc1	GET	/api/orders/12	undefined	Cannot destructure property 'user_id' of 'orderItems[0]' as it is undefined.
+03-05-2024	14:45:06	5364d08a-c0df-49d2-a0cc-8059cf676235	GET	/api/orders/12	undefined	Cannot destructure property 'user_id' of 'orderItems[0]' as it is undefined.
+03-05-2024	14:46:05	c0313868-1d49-4462-a855-aedc547587df	GET	/api/orders/12	404	Order not found.
+03-05-2024	14:52:43	7845f387-58f4-401d-a351-03dfb1d485d3	POST	/api/orders	undefined	FOREIGN KEY constraint failed
+03-05-2024	14:53:21	29e1acd2-9ca1-4a7c-bbe2-c1d3b77da541	POST	/api/orders	undefined	FOREIGN KEY constraint failed
+03-05-2024	14:53:29	0629a3d9-6636-4cc7-8ea5-47ab39d5b8b2	POST	/api/orders	405	POST is not a valid method

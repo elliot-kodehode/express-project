@@ -1,17 +1,20 @@
 ﻿import express from "express";
-import {addOrder, addProduct} from "../database/dbQueries.mjs";
+import {addOrder, getOrders, getSingleOrder} from "../database/dbQueries.mjs";
+import {ReqError} from "../middleware/errorHandler.mjs";
 const router = express.Router();
 
 router.all("/", (req, res) => {
     
     if (req.method === "GET") {
+        const data = getOrders()
+        
         res.status(200).json({
-            message: "Orders will come here",
+            data: data,
+            message: "Retrieved list of orders",
         });
         
         
     } else if (req.method === "POST") {
-        const orderId = req.params;
         addOrder(req.body)
         
         res.status(201).json({
@@ -24,14 +27,16 @@ router.all("/", (req, res) => {
 })
 
 router.all("/:orderId", (req, res) => {
-    const orderId = req.params;
+    const { orderId } = req.params;
     
     if (req.method === "GET") {
-        addOrder(req.body)
+        const data = getSingleOrder(orderId)
+        
+        if (data === null) throw new ReqError(404,"Order not found.")
 
         res.status(201).json({
-            message: "Product has been created!",
-            addedProduct: req.body
+            data: data, 
+            message: "Order retrieved."
         });
         
     } else if (req.method === "DELETE") {

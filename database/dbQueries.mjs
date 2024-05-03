@@ -1,8 +1,6 @@
 ﻿import sqlite3 from "better-sqlite3";
-import { join } from   "path";
+import {join} from "path";
 import fs from "fs";
-import * as constants from "node:constants";
-import products from "../api/products.mjs";
 
 const { dirname } = import.meta;
 
@@ -49,16 +47,40 @@ const loginUser = (email) => {
 
 const getOrders = () => db.prepare("SELECT * FROM orders").all()
 
-const getSingleOrder = (order_id, product_id) => {
-    db.prepare("SELECT * FROM order_products WHERE id = ?").get(order_id)
-    const productName = db.prepare("SELECT name FROM products WHERE id = ?").get(product_id)
+const getSingleOrder = (order_id) => {
+    // o is orders, op is order_products, p is products
+    const singleOrderQuery = 'SELECT o.id, o.user_id, o.count, p.name, p.category, op.quantity FROM orders AS o JOIN order_products AS op ON o.id = op.order_id JOIN products AS p ON op.product_id = p.id WHERE o.id = ?'
+    const orderItems = db.prepare(singleOrderQuery).all(order_id)
     
+    if (orderItems.length === 0) {
+        return null
+    }
+    
+    const { user_id, count } = orderItems[0];
+    return {
+                user_id: user_id,
+                order_id: order_id,
+                count: count,
+                order_items: orderItems.map(item => ({
+                    name: item.name,
+                    product_id: item.product_id,
+                    category: item.category,
+                    quantity: item.quantity,
+                }))
+            };
 }
-const addOrder = ({ user_id, count, order_date, order_items }) => {
-    const result = db.prepare("INSERT INTO orders (user_id, count, order_date) VALUES (?, ?, ?)").run(user_id, count, order_date);
 
+const addOrder = ({ user_id, order_items }) => {
+    
+    // sum of all the products*quantity for the order
+    let totalProducts = 0;
+    order_items.forEach(item => {
+        totalProducts += item.quantity;
+    })
+    
+    const result = db.prepare("INSERT INTO orders (user_id, count, order_date) VALUES (?, ?, CURRENT_DATE)")
+        .run(user_id, totalProducts);
     const order_id = db.prepare("SELECT last_insert_rowid() as lastId").get().lastId;
-    console.log(order_id)
     
     addOrderProduct({ order_id, order_items })
 }
@@ -68,11 +90,11 @@ const addOrderProduct = ({ order_id, order_items }) => {
     
     order_items.forEach(item => {
     const {product_id, quantity} = item
-    db.prepare("INSERT INTO order_products (order_id, product_id, quantity) VALUES (?, ?, ?)").run(order_id, product_id, quantity)
+    db.prepare("INSERT INTO order_products (order_id, product_id, quantity) VALUES (?, ?, ?)")
+        .run(order_id, product_id, quantity)
     }
     )
 }
-
 
 export { 
     getProducts, 
@@ -84,5 +106,7 @@ export {
     signupUser,
     loginUser,
     addOrder,
-    addOrderProduct
+    addOrderProduct,
+    getSingleOrder,
+    getOrders
 };
