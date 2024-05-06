@@ -19,9 +19,8 @@ const getSingleProduct = (id) => db.prepare("SELECT * FROM products WHERE id = ?
 
 // Add a product
 
-const addProduct = ({ name, category, stock, price, filePath }) => {
-    const imageFile = fs.readFileSync(filePath)
-    db.prepare("INSERT INTO products (name, category, stock, price, image_data, image_type) VALUES (?, ?, ?, ?, ?, ?)").run(name, category, stock, price, imageFile, 'image/jpeg')
+const addProduct = ({ name, category, stock, price }) => {
+    db.prepare("INSERT INTO products (name, category, stock, price) VALUES (?, ?, ?, ?)").run(name, category, stock, price)
 }
 
 const deleteProduct = (id) => db.prepare("DELETE FROM products WHERE id = ?").run(id)
@@ -80,7 +79,7 @@ const addOrder = ({ user_id, order_items }) => {
     
     const result = db.prepare("INSERT INTO orders (user_id, count, order_date) VALUES (?, ?, CURRENT_DATE)")
         .run(user_id, totalProducts);
-    const order_id = db.prepare("SELECT last_insert_rowid() as lastId").get().lastId;
+    const order_id = db.prepare('SELECT last_insert_rowid() as lastId').get().lastId;
     
     addOrderProduct({ order_id, order_items })
 }
@@ -96,6 +95,17 @@ const addOrderProduct = ({ order_id, order_items }) => {
     )
 }
 
+const deleteOrder = (id) => {
+    // Delete from order_products first since order_id is foreign key from orders
+    // Do it in two separate queries because sqlite cant do both in one
+    
+    db.prepare(
+        "DELETE FROM order_products WHERE order_id = ?").run(id)
+    db.prepare(
+        "DELETE FROM orders WHERE id = ?").run(id)
+}
+
+
 export { 
     getProducts, 
     getCategory, 
@@ -108,5 +118,6 @@ export {
     addOrder,
     addOrderProduct,
     getSingleOrder,
-    getOrders
+    getOrders,
+    deleteOrder
 };

@@ -1,13 +1,22 @@
 ﻿import express from 'express';
 const router = express.Router();
 import { ReqError } from "../middleware/errorHandler.mjs";
-import { getProducts, getCategory, getSingleProduct, addProduct, deleteProduct, updateProduct } from "../database/dbQueries.mjs";
+import {
+    getProducts,
+    getCategory,
+    getSingleProduct,
+    addProduct,
+    deleteProduct,
+    updateProduct,
+    deleteOrder, getSingleOrder
+} from "../database/dbQueries.mjs";
 import jwtValidator from "../middleware/jwtValidator.mjs";
 
 
-router.get("/", (res, req) => {
-    const { category } = req.query;
+router.get("/", (req, res) => {
+    const { category } = req.query
     let data;
+    
 
     if (category) {
         data = getCategory(category.toLowerCase())
@@ -20,7 +29,7 @@ router.get("/", (res, req) => {
     })
 })
 
-router.post("/", jwtValidator, (req, res) => {
+router.post("/", (req, res) => {
     addProduct(req.body)
 
     res.status(201).json({
@@ -38,51 +47,52 @@ router.all('/', (req, res, next) => {
     );
 });
 
-router.all("/:id", (req, res) => {
-        const { id } = req.params;
-        let message, data;
-        
-    if (req.method === "GET") {
-        data = getSingleProduct(id)
-        
-        if (data) {
-            message = "Successfully fetched data for product"
-        } else {
-            throw new ReqError(404, "Product not found")
-        }
-        
-    } else if (req.method === "DELETE") {
-       data = getSingleProduct(id);
-       
-       if (data) {
-           deleteProduct(id)
-           message = "Deleted product" + id
-       } else {
-           message = "Product not found"
-       }
-        
-    } else if (req.method === "PUT") {
-        const checkProduct = getSingleProduct(id)
-        
-        if (checkProduct) {
-            updateProduct(req.body);
-            message = "Successfully updated product"
-        data = {
-            oldVersion: checkProduct,
-            newVersion: req.body
-            }
-        } else {
-            throw new ReqError(404, "Product not found")
-        }
-        
-    } else {
-        throw new ReqError(500, "Not valid method")
-    }
-    res.status(200).json({
-        id: id, 
-        message: message, 
+router.get("/:id", (req, res) => {
+    const { id } = req.params
+    const data = getSingleProduct(id)
+
+    if (data === null) throw new ReqError(404,"Product not found.")
+
+    res.status(201).json({
         data: data
-    })
+    });
+})
+
+router.delete("/:id", (req, res) => {
+    const { id } = req.params
+    const data = getSingleProduct(id);
+    
+    if (data === null) throw new ReqError(404,"Product not found.")
+    
+    deleteProduct(id)
+    res.status(200).json({
+        message: "Deleted product " + id
+    });
+})
+
+router.put("/:id", (req, res) => {
+    const { id } = req.params
+    const checkProduct = getSingleProduct(id)
+    
+    if (checkProduct === null) throw new ReqError(404,"Product not found.")
+    
+    updateProduct(req.body);
+    res.status(200).json({
+        message: "Successfully updated product", 
+        data:{
+            oldVersion: checkProduct, 
+            newVersion: req.body
+        }
+    });
+})
+
+router.all("/:id", (req, res, next) => {
+    next(
+        new ReqError(
+            405,
+            "Unsupported request method. Please refer to the API documentation"
+        )
+    );
 })
 
 

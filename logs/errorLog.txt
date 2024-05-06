@@ -95,3 +95,39 @@
 03-05-2024	14:52:43	7845f387-58f4-401d-a351-03dfb1d485d3	POST	/api/orders	undefined	FOREIGN KEY constraint failed
 03-05-2024	14:53:21	29e1acd2-9ca1-4a7c-bbe2-c1d3b77da541	POST	/api/orders	undefined	FOREIGN KEY constraint failed
 03-05-2024	14:53:29	0629a3d9-6636-4cc7-8ea5-47ab39d5b8b2	POST	/api/orders	405	POST is not a valid method
+06-05-2024	13:19:03	cde8f9da-a02f-49ef-b3fb-4b9e45891c2f	DELETE	/api/orders/4	undefined	Too few parameter values were provided
+06-05-2024	13:19:26	0f0f89b8-0f55-4eb0-bd53-9f9c7c34128b	DELETE	/api/orders/4	undefined	Too few parameter values were provided
+06-05-2024	13:20:14	a25fb2c5-8275-436d-b25e-28d2af4aafc6	DELETE	/api/orders/4	undefined	Too few parameter values were provided
+06-05-2024	13:20:19	ed1d5255-4350-49af-9cc2-364b4196efc5	DELETE	/api/orders/4	undefined	Too few parameter values were provided
+06-05-2024	13:20:44	77285dcc-f9c8-4093-b502-5db21fb0e007	DELETE	/api/orders/4	undefined	Too few parameter values were provided
+06-05-2024	13:34:24	b09415dc-fe13-4670-803c-ec4bdd29b8ef	DELETE	/api/orders/4	undefined	near "DELETE": syntax error
+06-05-2024	13:34:41	fb10aab4-4b26-4996-8125-7ae12e90ce39	DELETE	/api/orders/4	undefined	near "DELETE": syntax error
+06-05-2024	13:38:28	6f47b7c7-8968-4518-98d7-d17f52f88b09	DELETE	/api/orders/4	undefined	FOREIGN KEY constraint failed
+06-05-2024	14:06:57	5f678efc-85d9-43d2-8e78-7bde15051bfc	POST	/api/products	undefined	The "path" argument must be of type string or an instance of Buffer or URL. Received undefined
+06-05-2024	14:07:07	468f97ae-74da-456a-8816-ec618ddfa2d5	POST	/api/products	undefined	The "path" argument must be of type string or an instance of Buffer or URL. Received undefined
+06-05-2024	14:07:13	66d44b89-0d0a-4dcc-96ec-99a9d824f5f5	POST	/api/products	undefined	The "path" argument must be of type string or an instance of Buffer or URL. Received undefined
+06-05-2024	14:08:43	cfdebf3a-66e4-4d5f-a8bd-d476b393b268	POST	/api/products	undefined	The "path" argument must be of type string or an instance of Buffer or URL. Received undefined
+06-05-2024	14:09:10	0ca93d65-79ec-4f93-9d50-6cb5503e8e18	POST	/api/products	undefined	The "path" argument must be of type string or an instance of Buffer or URL. Received undefined
+06-05-2024	14:09:49	c4c2f600-5202-4e96-a7a8-04724e99ff0f	POST	/api/products	undefined	The "path" argument must be of type string or an instance of Buffer or URL. Received undefined
+06-05-2024	14:10:48	8279f5cd-b6d8-47f3-b887-5776c2d15ff4	POST	/api/products	undefined	The "path" argument must be of type string or an instance of Buffer or URL. Received undefined
+06-05-2024	14:11:30	88afda95-f47b-4774-9cc5-bf6d6fda9694	POST	/api/products	undefined	The "path" argument must be of type string or an instance of Buffer or URL. Received undefined
+06-05-2024	14:11:37	e94eb74b-6378-4ea9-9c89-7da5c0cb1fc9	POST	/api/products	undefined	The "path" argument must be of type string or an instance of Buffer or URL. Received undefined
+06-05-2024	14:12:15	fede9965-c573-4fb0-9300-15c20c477b80	POST	/api/products	undefined	The "path" argument must be of type string or an instance of Buffer or URL. Received undefined
+06-05-2024	14:14:26	6e25bae1-bd49-4ce0-aaab-edd1b55f5ffa	POST	/api/products	undefined	The "path" argument must be of type string or an instance of Buffer or URL. Received undefined
+06-05-2024	14:14:58	c32d29a7-92c5-4d30-9640-a88992f44124	POST	/api/products	undefined	The "path" argument must be of type string or an instance of Buffer or URL. Received undefined
+06-05-2024	14:15:54	c3c066b8-e9e8-473b-9031-e844c9da4339	POST	/api/products	undefined	filePath is not defined
+06-05-2024	14:17:59	92aca3ec-6637-4779-abf2-000c464b03b5	POST	/api/products/68	405	Unsupported request method. Please refer to the API documentation
+06-05-2024	14:18:05	c9d5fda8-d99c-4bf7-b55e-1c0f426128ba	GET	/api/products/68	405	Unsupported request method. Please refer to the API documentation
+06-05-2024	14:18:49	dcacfb43-4ca9-4e65-810d-5b9238bf94ee	GET	/api/products	undefined	Cannot destructure property 'category' of 'req.query' as it is undefined.
+06-05-2024	14:23:18	80f8b2a1-4b91-4728-807a-d9e75ecd31e8	GET	/api/products	undefined	Cannot destructure property 'category' of 'req.query' as it is undefined.
+06-05-2024	14:25:24	c39d394a-60f3-4904-8957-10edcae510f0	GET	/api/products	undefined	res.status is not a function
+06-05-2024	14:25:41	73958160-d189-4e6b-833a-1f38b276ce6d	GET	/api/products	undefined	res.status is not a function
+06-05-2024	14:27:34	4a8c7d71-873a-4767-9efd-a85ec677a54d	GET	/api/products	undefined	res.status is not a function
+06-05-2024	14:29:19	d350f37e-b599-4dd4-8e46-3bd7b217a713	GET	/api/products	undefined	res.status is not a function
+06-05-2024	14:30:25	8fb7794f-3ce8-4c2d-b105-849b553a0c1b	GET	/api/products	undefined	Cannot read properties of undefined (reading 'toLowerCase')
+06-05-2024	14:30:45	1d287a84-8fcb-4461-af24-0640582e3db3	GET	/api/products	undefined	Cannot read properties of undefined (reading 'toLowerCase')
+06-05-2024	14:31:03	449f2fba-96e5-445d-b954-2d6450902cee	GET	/api/products	undefined	Cannot read properties of undefined (reading 'toLowerCase')
+06-05-2024	14:41:49	aa2b141b-ed40-40db-8e96-c72a7fbd4495	GET	/api/products/64	405	Unsupported request method. Please refer to the API documentation
+06-05-2024	14:42:00	a0eacbc7-bd79-4844-a407-99002b8c8a22	GET	/api/products/68	405	Unsupported request method. Please refer to the API documentation
+06-05-2024	14:43:37	fdc2edc9-16ea-4cd8-ae76-54c032d63d0a	GET	/api/products/68	405	Unsupported request method. Please refer to the API documentation
+06-05-2024	14:45:26	ef77d655-4006-4968-911d-4f069a9b241f	GET	/api/products/68	405	Unsupported request method. Please refer to the API documentation
