@@ -58,7 +58,7 @@ const getSingleOrder = (order_id) => {
     const { user_id, count } = orderItems[0];
     return {
                 user_id: user_id,
-                order_id: order_id,
+                order_id: orderItems[0].id,
                 count: count,
                 order_items: orderItems.map(item => ({
                     name: item.name,
