@@ -29,7 +29,7 @@ router.get("/", (req, res) => {
     })
 })
 
-router.post("/", (req, res) => {
+router.post("/", jwtValidator, (req, res) => {
     addProduct(req.body)
 
     res.status(201).json({

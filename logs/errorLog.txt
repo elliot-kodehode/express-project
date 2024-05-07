@@ -131,3 +131,5 @@
 06-05-2024	14:42:00	a0eacbc7-bd79-4844-a407-99002b8c8a22	GET	/api/products/68	405	Unsupported request method. Please refer to the API documentation
 06-05-2024	14:43:37	fdc2edc9-16ea-4cd8-ae76-54c032d63d0a	GET	/api/products/68	405	Unsupported request method. Please refer to the API documentation
 06-05-2024	14:45:26	ef77d655-4006-4968-911d-4f069a9b241f	GET	/api/products/68	405	Unsupported request method. Please refer to the API documentation
+07-05-2024	09:25:53	6a4117bf-0216-4eb4-adc5-bb06b0ddcbb9	POST	/api/orders/5	405	Unsupported request method. Please refer to the API documentation
+07-05-2024	09:32:55	a58f89a7-0921-414f-94e7-b81ced3b5d19	POST	/api/orders/5	405	Unsupported request method. Please refer to the API documentation
