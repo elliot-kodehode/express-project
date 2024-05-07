@@ -1,0 +1,9 @@
+﻿
+Queries tested:
+
+user must be authenticated to post/delete products/orders
+user_id must exist
+product_id must exist
+cant add other values to req
+schema does schema things
+

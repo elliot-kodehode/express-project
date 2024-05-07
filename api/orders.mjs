@@ -7,6 +7,7 @@ import {
 } from "../database/dbQueries.mjs";
 import {ReqError} from "../middleware/errorHandler.mjs";
 import jwtValidator from "../middleware/jwtValidator.mjs";
+import {validateOrderData} from "../middleware/dataValidator.mjs";
 const router = express.Router();
 
 
@@ -19,7 +20,7 @@ router.get("/", (req, res) => {
     });
 })
 
-router.post("/", jwtValidator, (req, res) => {
+router.post("/", jwtValidator, validateOrderData, (req, res) => {
     addOrder(req.body)
 
     res.status(201).json({
@@ -29,13 +30,11 @@ router.post("/", jwtValidator, (req, res) => {
 })
 
 
-router.all("/", (req, res, next) => {
-    next(
-        new ReqError(
+router.all("/", (req, res) => {
+    throw new ReqError(
             405,
             "Unsupported request method. Please refer to the API documentation"
         )
-    );
 })
 
 router.get("/:orderId", (req, res) => {
@@ -50,7 +49,7 @@ router.get("/:orderId", (req, res) => {
     });
 })
 
-router.delete("/:orderId", (req, res) => {
+router.delete("/:orderId", jwtValidator, (req, res) => {
     const { orderId } = req.params
     const data = getSingleOrder(orderId);
 

@@ -10,6 +10,7 @@ import {
     updateProduct,
     deleteOrder, getSingleOrder
 } from "../database/dbQueries.mjs";
+import {validateProductData} from "../middleware/dataValidator.mjs";
 import jwtValidator from "../middleware/jwtValidator.mjs";
 
 
@@ -29,7 +30,7 @@ router.get("/", (req, res) => {
     })
 })
 
-router.post("/", jwtValidator, (req, res) => {
+router.post("/", jwtValidator, validateProductData, (req, res) => {
     addProduct(req.body)
 
     res.status(201).json({
@@ -58,7 +59,7 @@ router.get("/:id", (req, res) => {
     });
 })
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", jwtValidator, (req, res) => {
     const { id } = req.params
     const data = getSingleProduct(id);
     
@@ -70,7 +71,7 @@ router.delete("/:id", (req, res) => {
     });
 })
 
-router.put("/:id", (req, res) => {
+router.put("/:id", jwtValidator, validateProductData, (req, res) => {
     const { id } = req.params
     const checkProduct = getSingleProduct(id)
     

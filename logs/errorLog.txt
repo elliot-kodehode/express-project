@@ -133,3 +133,43 @@
 06-05-2024	14:45:26	ef77d655-4006-4968-911d-4f069a9b241f	GET	/api/products/68	405	Unsupported request method. Please refer to the API documentation
 07-05-2024	09:25:53	6a4117bf-0216-4eb4-adc5-bb06b0ddcbb9	POST	/api/orders/5	405	Unsupported request method. Please refer to the API documentation
 07-05-2024	09:32:55	a58f89a7-0921-414f-94e7-b81ced3b5d19	POST	/api/orders/5	405	Unsupported request method. Please refer to the API documentation
+07-05-2024	12:57:28	8f323968-3446-4316-bdf4-7f479668da82	GET	/api/signup	405	GET not supported!
+07-05-2024	12:57:35	f8a39f3a-0a16-42d2-88b3-38835e4157e6	POST	/api/signup	400	"password" length must be at least 8 characters long
+07-05-2024	12:57:47	31c2caa0-e1e2-47fa-9feb-06c0bdecbb91	POST	/api/signup	400	"email" must be a valid email
+07-05-2024	12:58:06	3d19bdf6-57c0-4ca9-9ddf-0c760d706073	POST	/api/signup	400	"email" must be a valid email
+07-05-2024	12:58:40	3bb54b2d-69b5-492d-88a2-5b6cbb2e4ae1	POST	/api/signup	403	UNIQUE constraint failed: users.email
+07-05-2024	13:02:51	57b72447-d121-4e3d-95b2-cbacbe4cf877	PUT	/api/orders	405	Unsupported request method. Please refer to the API documentation
+07-05-2024	13:10:25	1b0550e1-47b3-4f3d-9ef9-e54905d10d62	POST	/api/orders	undefined	userList.includes is not a function
+07-05-2024	13:14:48	77c28164-8cd6-4bba-9bab-2360f3efadb7	POST	/api/orders	403	Authentication failed
+07-05-2024	13:32:23	3a70725f-b93f-4692-bb8c-64f2ca0d017c	POST	/products	404	Not Found
+07-05-2024	13:32:40	1f7cb706-3937-4ca7-bd9d-cf5715215122	POST	/products	404	Not Found
+07-05-2024	13:32:56	900675ea-bd97-437b-b04d-98f55324113f	POST	/orders	404	Not Found
+07-05-2024	13:34:31	29bef303-5508-4b72-9f75-cd8215960f09	POST	/orders	404	Not Found
+07-05-2024	13:41:12	8be5eeb9-f6ba-4a3b-86bc-ff974be7c1e8	POST	/orders	404	Not Found
+07-05-2024	13:41:27	50ecc97d-56ae-440d-8a22-c00aef7faa43	POST	/orders	404	Not Found
+07-05-2024	13:43:15	a7110b58-b344-4190-be10-ad0541ca4f98	POST	/orders	404	Not Found
+07-05-2024	13:44:25	53e28d63-3341-44ea-b525-b08c40212508	GET	/orders	404	Not Found
+07-05-2024	13:44:31	3a005a2b-341d-4c08-b1be-d805ce60a26b	GET	/orders	404	Not Found
+07-05-2024	13:45:00	80978196-0907-47ad-9263-68f3c8f1f896	GET	/orders	404	Not Found
+07-05-2024	13:46:54	5e505e0e-7ca1-480b-8a68-197b58f5bb64	GET	/orders	404	Not Found
+07-05-2024	13:48:04	19fa7a5c-c269-46a8-90f0-3bc9aa4793b7	POST	/api/orders	undefined	userList is not defined
+07-05-2024	13:49:00	0037bdae-52ef-4ee0-a9b5-7691436aefe4	POST	/api/orders	403	Authentication failed
+07-05-2024	14:16:48	b265ff17-dd8e-4d87-b3b2-631f77baf010	POST	/api/orders	403	Specified product does not exist.
+07-05-2024	14:17:46	bba26f90-a021-43fb-8086-9f1e345f588f	POST	/api/orders	403	Specified product does not exist.
+07-05-2024	14:17:59	cf70a74e-cd4f-451c-820e-1de9bbce5b92	POST	/api/orders	403	Specified product does not exist.
+07-05-2024	14:19:49	e25413b3-d400-4a4c-8733-0189c965128b	POST	/api/orders	403	Specified product does not exist.
+07-05-2024	14:19:55	b599d807-d171-4b25-a3f5-0064ba05216d	POST	/api/orders	undefined	FOREIGN KEY constraint failed
+07-05-2024	14:21:30	f9e0d0e3-26f0-42bc-bcd0-03b7c9275eea	POST	/api/orders	403	Specified product does not exist.
+07-05-2024	14:21:38	c130fb3f-ce8d-4356-b488-e1ab14b3468f	POST	/api/orders	403	Specified product does not exist.
+07-05-2024	14:23:52	ec4a4b92-0af8-4f70-a5ef-fa811a424d52	POST	/api/orders	403	Specified product does not exist.
+07-05-2024	14:24:44	85332eff-aff8-44b6-b681-002d9a27e029	POST	/api/orders	403	Specified product does not exist.
+07-05-2024	14:34:02	e3ebd489-adfa-48b5-8b8d-9c0cfa9addf4	POST	/api/orders	403	Specified product does not exist.
+07-05-2024	14:39:03	120d39bd-5a56-420d-805e-32b561df9416	POST	/api/orders	400	"user_id" must be a number
+07-05-2024	14:39:50	21dd6cee-1a2f-464f-9705-a1d7011e1dd0	POST	/api/orders	400	"order_items[0].quantity" must be greater than or equal to 1
+07-05-2024	14:40:05	9f1a0888-21d4-4ec0-9b8d-81c577c4681b	POST	/api/orders	403	Specified product does not exist.
+07-05-2024	14:40:16	ad109df6-8c76-4f62-9aca-f32d121adc4b	POST	/api/orders	400	"order_items[0].product_id" must be a number
+07-05-2024	14:42:42	4eb7811d-e420-4a04-84e3-87375d79ddbe	POST	/api/orders	400	"order_items[0].product_id" must be a number
+07-05-2024	14:42:50	7d259c15-a8aa-4828-b8cf-c9670b2b3aa1	POST	/api/orders	400	"order_items[0].quality" is not allowed
+07-05-2024	14:43:07	8fe23792-330d-462e-b931-477b151d02f5	POST	/api/orders	400	"order_items[0].quality" is not allowed
+07-05-2024	14:43:15	f862d53a-a863-4536-8ab0-2cea663e97ef	POST	/api/orders	400	"time" is not allowed
+07-05-2024	14:50:04	5afabdd4-27ab-4c3b-a436-db67103eed86	POST	/api/signup	400	"password" should contain at least 2 special character

@@ -1,6 +1,8 @@
 ﻿import sqlite3 from "better-sqlite3";
 import {join} from "path";
 import fs from "fs";
+import {ReqError} from "../middleware/errorHandler.mjs";
+import orders from "../api/orders.mjs";
 
 const { dirname } = import.meta;
 
@@ -28,8 +30,6 @@ const deleteProduct = (id) => db.prepare("DELETE FROM products WHERE id = ?").ru
 const updateProduct = ({name, category, stock, id}) => db.prepare(
     "UPDATE products SET name = ?, category = ?, stock = ? WHERE id = ?").run(name, category, stock, id)
 
-//
-//
 // USERS 
 
 const signupUser = (email, password) => db.prepare(
@@ -40,15 +40,13 @@ const loginUser = (email) => {
     return loginUserQuery.get(email)
 }
 
-//
-//
-// Orders
+// ORDERS
 
 const getOrders = () => db.prepare("SELECT * FROM orders").all()
 
 const getSingleOrder = (order_id) => {
     // o is orders, op is order_products, p is products
-    const singleOrderQuery = 'SELECT o.id, o.user_id, o.count, p.name, p.category, op.quantity FROM orders AS o JOIN order_products AS op ON o.id = op.order_id JOIN products AS p ON op.product_id = p.id WHERE o.id = ?'
+    const singleOrderQuery = 'SELECT o.id, o.user_id, o.email, o.count, p.name, p.category, op.quantity FROM orders AS o JOIN order_products AS op ON o.id = op.order_id JOIN products AS p ON op.product_id = p.id WHERE o.id = ?'
     const orderItems = db.prepare(singleOrderQuery).all(order_id)
     
     if (orderItems.length === 0) {
@@ -70,6 +68,18 @@ const getSingleOrder = (order_id) => {
 }
 
 const addOrder = ({ user_id, order_items }) => {
+    //Checks if the user_id belongs to an existing user
+    const userList = db.prepare("SELECT id FROM users").all().map(user => user.id)
+    if (!userList.includes(user_id)) throw new ReqError(403, "Authentication failed")
+    
+    
+    // Checks if the product_id belongs to a product
+    const productList = db.prepare("SELECT id FROM products").all().map(product => product.id)
+    const { product_id } = order_items
+    
+    order_items.forEach(item => {
+        if (!productList.includes(item.product_id)) throw new ReqError(403, "Specified product does not exist.")
+    })
     
     // sum of all the products*quantity for the order
     let totalProducts = 0;

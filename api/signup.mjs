@@ -1,10 +1,11 @@
 ﻿import express from 'express';
 const router = express.Router();
 import {signupUser} from "../database/dbQueries.mjs";
+import {validateUserData} from "../middleware/dataValidator.mjs";
 import {ReqError} from "../middleware/errorHandler.mjs";
 import bcrypt from "bcrypt";
 
-router.post("/", async (req, res, next) => {
+router.post("/", validateUserData, async (req, res, next) => {
     const {email, password} = req.body
     
     const hashedPassword = await bcrypt.hash(password, 10)
