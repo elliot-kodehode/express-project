@@ -1,8 +1,6 @@
 ﻿import sqlite3 from "better-sqlite3";
 import {join} from "path";
-import fs from "fs";
 import {ReqError} from "../middleware/errorHandler.mjs";
-import orders from "../api/orders.mjs";
 
 const { dirname } = import.meta;
 
@@ -46,23 +44,30 @@ const getOrders = () => db.prepare("SELECT * FROM orders").all()
 
 const getSingleOrder = (order_id) => {
     // o is orders, op is order_products, p is products
-    const singleOrderQuery = 'SELECT o.id, o.user_id, o.email, o.count, p.name, p.category, op.quantity FROM orders AS o JOIN order_products AS op ON o.id = op.order_id JOIN products AS p ON op.product_id = p.id WHERE o.id = ?'
+    const singleOrderQuery = 
+        `SELECT o.id, o.user_id, u.email, o.count, p.name, p.category, op.quantity 
+         FROM orders AS o 
+         JOIN order_products AS op ON o.id = op.order_id 
+         JOIN products AS p ON op.product_id = p.id 
+         JOIN users AS u ON o.user_id = u.id
+         WHERE o.id = ?`
     const orderItems = db.prepare(singleOrderQuery).all(order_id)
     
     if (orderItems.length === 0) {
         return null
     }
     
-    const { user_id, count } = orderItems[0];
+    const { user_id, count, email, id } = orderItems[0];
     return {
-                user_id: user_id,
-                order_id: orderItems[0].id,
-                count: count,
-                order_items: orderItems.map(item => ({
-                    name: item.name,
-                    product_id: item.product_id,
-                    category: item.category,
-                    quantity: item.quantity,
+        user_id: user_id,
+        "email": email,
+        order_id: id,
+        count: count,
+        order_items: orderItems.map(item => ({
+            name: item.name,
+            product_id: item.product_id,
+            category: item.category,
+            quantity: item.quantity,
                 }))
             };
 }
@@ -75,7 +80,6 @@ const addOrder = ({ user_id, order_items }) => {
     
     // Checks if the product_id belongs to a product
     const productList = db.prepare("SELECT id FROM products").all().map(product => product.id)
-    const { product_id } = order_items
     
     order_items.forEach(item => {
         if (!productList.includes(item.product_id)) throw new ReqError(403, "Specified product does not exist.")
